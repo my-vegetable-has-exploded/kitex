@@ -126,7 +126,7 @@ func TestConsistPicker_Next_NoCache(t *testing.T) {
 func TestConsistPicker_Next_NoCache_Consist(t *testing.T) {
 	opt := newTestConsistentHashOption()
 	insList := []discovery.Instance{
-		discovery.NewInstance("tcp", "addr1", 10, nil),
+		discovery.NewInstance("tcp", "addr1", 100, nil),
 		discovery.NewInstance("tcp", "addr2", 10, nil),
 		discovery.NewInstance("tcp", "addr3", 10, nil),
 		discovery.NewInstance("tcp", "addr4", 10, nil),

@@ -378,6 +378,7 @@ func (cb *consistBalancer) buildVirtualNodes(rNodes []realNode) []virtualNode {
 			b[j] = 0
 		}
 		b[len(bAddr)] = '#'
+		blen := len(bAddr)
 
 		vLen := cb.getVirtualNodeLen(rNodes[i])
 		for j := 0; j < vLen; j++ {
@@ -386,6 +387,9 @@ func (cb *consistBalancer) buildVirtualNodes(rNodes []realNode) []virtualNode {
 			// Assign values to b one by one, starting with the last one.
 			for k > 0 {
 				b[l-1-cnt] = byte(k % 10)
+				if( (l-1-cnt) <= blen ) {
+					panic("serial number modify address")
+				}
 				k /= 10
 				cnt++
 			}
